@@ -1,18 +1,27 @@
-
-let user = {
-    name: 'John',
-    surname: 'Smith'
-};
 const button = document.querySelector('.toServer');
-button.addEventListener('click', ()=>{
-    console.log('otpravka')
-    fetch('http://localhost:8080/api/user',{
+const names = document.querySelector('.names');
+const surnames = document.querySelector('.surname');
+let requestAPI = ()=>{
+    const data = {
+        name: 'KEK',
+        surname: 'LOL'
+    }
+    fetch('http://localhost:8080/',{
+        mode: 'no-cors',
         method: 'POST',
         headers: {
-        'Content-Type': 'application/json;charset=utf-8'
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
         },
-
-        body: user
+        body: JSON.stringify(data),
     })
-    .then(response => console.log(response.json()))
-})
+    .then((response) => console.log(response));
+}
+//button.addEventListener('click', requestAPI);
+requestAPI();
+ //let namen = names.value,
+        //surname = surnames.value;
+
+
+
+
